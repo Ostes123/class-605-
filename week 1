@@ -1,0 +1,13 @@
+SELECT
+    DB_NAME(database_id)  AS "Database Name"
+  , type_desc             AS "File Type"
+  , name                  AS "Logical File Name"
+  , physical_name         AS "Physical File"
+  , state_desc            AS "State"
+FROM
+    sys.master_files
+WHERE
+    database_id IN (
+              DB_ID('AdventureWorks2012')
+    );
+Go
